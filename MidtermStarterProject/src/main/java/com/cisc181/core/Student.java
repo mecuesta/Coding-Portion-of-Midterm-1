@@ -7,6 +7,10 @@ public class Student extends Person {
 
 	private Enum<eMajor> Major;
 	
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Enum<eMajor> getMajor ( )
     {
         return this.Major;
@@ -23,6 +27,7 @@ public class Student extends Person {
 		this.Major = Major;
 		
 	}
+	
 	
 	@Override
 	public void PrintName() {

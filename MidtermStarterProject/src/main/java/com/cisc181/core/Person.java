@@ -2,6 +2,8 @@ package com.cisc181.core;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /*
  * comment
@@ -100,8 +102,18 @@ public abstract class Person {
 				+ this.LastName);
 	}
 
-	public void PrintDOB() {
-		System.out.println(this.DOB);
+	public void PrintDOB(Date dob) throws
+	                  PersonException {
+		Calendar today = Calendar.getInstance();
+		Calendar birthDate = Calendar.getInstance();
+		birthDate.setTime(dob);
+		int age = today.get(Calendar.YEAR) - birthDate.get(Calendar.YEAR);
+		
+		if (age <= 100) {
+			System.out.println(dob);
+		} else{
+			throw new PersonException(dob);
+		}
 	}
 
 	public int PrintAge() {
@@ -131,8 +143,23 @@ public abstract class Person {
 		}
 
 		System.out.println("age is " + age);
-
 		return age;
 
 	}
+	
+	public static void PrintPhoneNumber(String phone_number) throws
+	                             PersonException {
+		String regex = "^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$";
+		
+		Pattern pattern = Pattern.compile(regex);
+		
+		Matcher matcher = pattern.matcher(phone_number);
+		Matcher valid_matcher = pattern.matcher("12345677890");
+		if (matcher == valid_matcher) {
+			System.out.println("Phone number is " + phone_number);
+		} else {
+			throw new PersonException(phone_number);
+		}
+	}
+	
 }

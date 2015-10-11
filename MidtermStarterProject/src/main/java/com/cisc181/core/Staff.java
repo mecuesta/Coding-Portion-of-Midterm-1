@@ -1,19 +1,20 @@
 package com.cisc181.core;
 
 import java.util.Date;
+import com.cisc181.eNums.eTitle;
 
 public class Staff extends Employee {
 
-	 private String Title;
+	 private Enum<eTitle> Title;
 
-	   public Staff(String title){
-	        this.Title = title;
+	   public Staff(Enum<eTitle> Title){
+	        this.Title = Title;
 	    }
 
-	    public void setTitle(String title){
-	        this.Title = title;
+	    public void setTitle(Enum<eTitle> Title){
+	        this.Title = Title;
 	    }
-	    public String getTitle(){
+	    public Enum<eTitle> getTitle(){
 	        return this.Title;
 	    }
 
@@ -23,7 +24,7 @@ public class Staff extends Employee {
 	public Staff(String FirstName, String MiddleName, String LastName,
 			Date DOB, String Address, String Phone_number, String Email,
 			String officeHours, int rank, double salary, Date hireDate,
-			String Title) 
+			Enum<eTitle> Title) 
 	
 	{
 		super(FirstName, MiddleName, LastName, DOB, Address, Phone_number,

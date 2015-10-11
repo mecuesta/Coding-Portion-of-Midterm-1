@@ -10,8 +10,31 @@ public class Enrollment {
 	private double Grade;
 	
 	private Enrollment() {
+		this.SectionID = SectionID;
+		this.StudentID = StudentID;
 	}
 	
+	
+	public UUID getSectionID() {
+		return SectionID;
+	}
+
+
+	public void setSectionID(UUID sectionID) {
+		SectionID = sectionID;
+	}
+
+
+	public UUID getStudentID() {
+		return StudentID;
+	}
+
+
+	public void setStudentID(UUID studentID) {
+		StudentID = studentID;
+	}
+
+
 	public double getGrade(double Grade) {
 		return this.Grade;
 	}
